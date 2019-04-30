@@ -24,7 +24,9 @@ public class Card{
 	
 	public void validate(int[] a){
 		for(int i=0;i<a.length-1;i+=2){
-			a[i] = a[i]*2;
+			a[i] = a[i]*2; //doubles every other array element
+			if(a[i] > 9)
+				a[i] = a[i]%10 +1; //adds both digits in the element together, resulting in a single digit element
 			System.out.println("array at index " + i + ": " + a[i]);
 		}
 	}
