@@ -9,15 +9,29 @@ import javafx.scene.text.Text;
 import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 
+/** 
+A GUI based application that accepts a credit card number and uses a checksum
+to determine if the number is a valid credit card number.
+*/
 public class Validator extends Application{
 	
+	/**
+	Represents the user's credit card.
+	*/
 	private Card c;
+	/**
+	The user enters their credit card number via this text field.
+	*/
 	private TextField tf;
+	/**
+	This text displays the results of the validation to the user.
+	*/
 	private Text txt;
 	
 	public void start(Stage stage){
 		
 		stage.setTitle("CC Validator");
+		
 		
 		Label label = new Label("Enter your 16-digit card number (no spaces)");
 		
@@ -28,6 +42,7 @@ public class Validator extends Application{
 			b.setOnAction(this::handle);
 		
 		txt = new Text("");
+
 		
 		FlowPane pane = new FlowPane(label, tf, b, txt);
 			pane.setVgap(20);
@@ -40,6 +55,10 @@ public class Validator extends Application{
 		stage.show();
 	}
 	
+	/**
+	This method handles the ActionEvent created when the "Validate" button is pressed.
+	@param e The ActionEvent that occurs when the "Validate" button is pressed.
+	*/
 	public void handle(ActionEvent e){
 		
 		try{
